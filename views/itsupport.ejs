@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <title>IT Support</title>
+    <%- include('./partials/head.ejs') %>
+  </head>
+
+  <body class="position-relative" data-bs-spy="scroll">
+    <header>
+        <%- include('./partials/navbar.ejs') %>
+    </header>
+
+    <div class="container-fluid content-container d-flex align-items-center justify-content-center" style="height: 100vh;">
+      <div class="row justify-content-center">
+        <div class="col text-center">
+          <h1>IT-support for studenter</h1>
+          <p>VID tilbyr deg som student et utvalg IT-verktøy og tjenester, men presiserer at vi normalt ikke hjelper til med tekniske feil eller endring av innstillinger på din PC/Mac. Det er et krav at alle våre studenter har nyere operativsystem med antivirus, og gjennomfører regelmessige oppdateringer av all relevant programvare for å sikre stabil funksjonalitet.</p>
+    
+          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#wifiToast">Trådløst nettverk</button>
+          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#feideToast">Om Feide</button>
+          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#office365Toast">Gratis Microsoft Office 365</button>
+          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#printToast">Utskrift</button>
+    
+          <p>Finner du ikke svar over, ta kontakt med IT-support på e-post helpdesk@vid.no.</p>
+    
+          <p>Vi holder åpent mellom kl. 08.00–15.30.</p>
+        </div>
+      </div>
+    </div>
+      
+      <div class="toast-container">
+
+        <div class="toast" id="wifiToast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="me-auto">Trådløst nettverk</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            <p>Som student har du tilgang til å logge deg på det trådløse nettverket Eduroam.</p>
+            <ol>
+              <li>Brukernavn er ditt studentnummer etterfulgt av @vidstud.no. Eks: 123456@vidstud.no</li>
+              <li>Passordet er det samme som du har laget i Feide.</li>
+            </ol>
+            <p>Husk å godkjenne sertifikatet som dukker opp ved førstegangs pålogging.</p>
+          </div>
+        </div>
+        
+    <div class="toast" id="feideToast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+          <strong class="me-auto">Om Feide</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <p>Opprett Feide-konto</p>
+        <ol>
+          <li>Gå til Passordweb: https://passordweb.vid.no/Passordweb</li>
+            <li>Velg språk, norsk eller engelsk.</li>
+            <li>Velg Student.</li>
+            <li>Velg Aktiver konto/Glemt passord.</li>
+            <li>Fyll inn ditt studentnummer, fødsels- og personnummer (eller d-nummer), og pinkode.</li>
+            <li>Trykk Valider.</li>
+            <li>Lag et passord. Det må inneholde både store og små bokstaver, samt tall og et tegn som for eksempel ?!&%</li>
+            <li>Når du har huket av for at du har lest IT-reglementet og evakueringsinstruksen, kan du trykke OK.</li>
+            <li>En beskjed på siden vil informere deg om at passordet ditt er aktivert.</li>
+            <li>Etter at du har opprettet Feide-kontoen din må du vente i 90 minutter før du logger deg på Feide. Hvis du prøver å logge deg på før det har gått 90 minutter blir kontoen din låst og du må gjøre alt på nytt. Ta godt vare på passordet du lager til Feide-kontoen din. Det kommer du til å bruke mye!</li>
+        </ol>
+      </div>
+  </div>
+
+    <div class="toast" id="office365Toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Gratis Microsoft Office 365</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <h5>Microsoft Office 365 for studenter</h5>
+        <p>Aktive studenter ved VID har gratis tilgang til Office 365, som inneholder Office-pakken med blant annet Teams, Word, Excel, PowerPoint og Outlook.</p>
+  
+        <p>Du kan bruke Office 365 i skyen eller laste programmene ned så lenge du er student ved VID.</p>
+  
+        <h6>Nedlasting for bruk offline</h6>
+        <p>Office 365 kan lastes ned på inntil fem PC/Mac og fem mobile enheter. Den nedlastbare versjonen av Office 365 er noe mindre enn skyløsningen, men den inneholder de vanligste Microsoft Office programmene.</p>
+  
+        <h6>Slik gjør du</h6>
+        <p>Du trenger: En nyere PC/bærbar/Mac med tilstrekkelig lagringskapasitet. Du trenger internett-tilgang og Feide-konto.</p>
+  
+        <p>Logg på Office 365-portalen med din studentidentitet studentnummer@vidstud.no og ditt Feide-passord.</p>
+  
+        <p>På portalsiden finner du en knapp vil du øverst til høyre der du kan laste ned siste versjon av Office-pakken. På portalsiden finner du også veien til Office 365-applikasjonene som ligger i skyen.</p>
+      
+        <p><strong>Tofaktorautentisering</strong></p>
+        <p>Som student ved VID må du bruke tofaktorautentisering.</p>
+  
+        <p>Tofaktorautentisering må benyttes ved første innlogging til Microsoft 365 på nytt IT-utstyr. Det brukes alltid ved innlogging til Microsoft-systemer i nettlesere. I installert Microsoft programvare (Word, Outlook, Excel, Powerpoint o.l.) må du re-autentisere med to-faktor etter 90 dager.</p>
+  
+        <p>I VID bruker vi hovedsakelig kodeappen Microsoft Authenticator. Denne laster du ned på mobiltelefonen.</p>
+  
+        <p><strong>Veivisere for tofaktorautentifisering</strong></p>
+        <ul>
+          <li>Veiviser ligger tilgjengelig på: https://www.vid.no/student/it-support/microsoft-office-365-for-studenter/</a></li>
+        </ul>
+  
+        <p>IT Service & Support vil gi nødvendig brukerstøtte til alle som trenger det.</p>
+      </div>
+    </div>
+
+        <div class="toast" id="utskriftToast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+          <strong class="me-auto">Utskrift</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <p>Aktivere utskrift</p>
+        <ol>
+          <li>Gå til SafeQ nettsiden: https://safeqprint.vid.no:9443/end-user/ui/login</li>
+            <li>Lade adgangskortet ditt.</li>
+            <li>Knytte adgangkortet ditt opp mot ditt studentnummer.</li>
+        </ol>
+        <li>For å laste opp og skrive ut:</li>
+            <li>Gå til SafeQ web.</li>
+            <li>Velg upload job -> select files & last opp dokumentene.</li>
+            <li>Logg inn på printeren med studentnummer og passord eller med kort.</li>
+            <li>Velg SafeQ Print, og velg dokumentene du skal skrive ut.</li>
+        </ol>
+
+      </div>
+  </div>
+
+  </div>
+
+  
+  
+<%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

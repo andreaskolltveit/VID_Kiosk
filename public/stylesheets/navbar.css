@@ -1,0 +1,16 @@
+/* Styling for the fixed navigation bar */
+#navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Background color for the navbar, with !important to override other styles */
+.navbar {
+    background-color: rgb(255, 123, 0) !important;
+}
+
+/* Styling for the color of navigation links within the navbar */
+.navbar-nav .nav-link {
+    color: white;
+}

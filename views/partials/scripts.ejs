@@ -1,0 +1,64 @@
+<!-- Include the necessary JavaScript libraries for popovers, tooltips, and custom scripts -->
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/custom.js"></script>
+
+<!-- Script for managing toast notifications using Bootstrap Toast component -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Retrieve all toast elements
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+
+  // Create an array of Bootstrap Toast instances
+  var toastList = toastElList.map(function (toastEl) {
+    var bsToast = new bootstrap.Toast(toastEl);
+
+    // Hide other toasts when a new one is shown
+    toastEl.addEventListener('show.bs.toast', function () {
+      toastList.filter(function (otherToast) {
+        return otherToast !== bsToast;
+      }).forEach(function (otherToast) {
+        otherToast.hide();
+      });
+    });
+
+    return bsToast;
+  });
+
+  // Attach click event listeners to toast toggle buttons
+  var toastButtons = document.querySelectorAll('[data-bs-toggle="toast"]');
+  toastButtons.forEach(function (button, index) {
+    button.addEventListener('click', function () {
+      toastList[index].show();
+    });
+  });
+});
+</script>
+
+<!-- Script for logging page visits and displaying a log table -->
+<script>
+    // Log a message indicating that the script is running
+    console.log('Script is running.');
+  
+    // Retrieve stored page visit counts from localStorage or initialize an empty object
+    const storedPageCounts = JSON.parse(localStorage.getItem('pageCounts')) || {};
+    console.log('Stored Page Counts:', storedPageCounts);
+  
+    // Identify the current page using its pathname
+    const currentPage = window.location.pathname;
+  
+    // Update the visit count for the current page
+    storedPageCounts[currentPage] = (storedPageCounts[currentPage] || 0) + 1;
+    console.log(`Visited ${currentPage}. New count: ${storedPageCounts[currentPage]}`);
+  
+    // Save the updated pageCounts back to localStorage
+    localStorage.setItem('pageCounts', JSON.stringify(storedPageCounts));
+  
+    // Display the page visit log in a table on the webpage
+    const logTableBody = document.getElementById('logTableBody');
+    Object.entries(storedPageCounts).forEach(([page, count]) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${page}</td><td>${count}</td>`;
+      logTableBody.appendChild(row);
+    });
+</script>
