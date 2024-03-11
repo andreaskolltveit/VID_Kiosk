@@ -4,6 +4,22 @@
 <head>
   <title>VID Service Kiosk</title>
   <%- include('./partials/head.ejs') %>
+  <style>
+    .center-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .grid-item {
+      width: 50%;
+      height: 50%;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
@@ -11,6 +27,21 @@
     <%- include('./partials/navbar.ejs') %>
   </nav>
   
+  <div class="container-fluid full-height">
+    <div class="row justify-content-start full-height">
+      <div class="col full-height">
+        <div class="center-container" style="justify-content: center;">
+          <iframe src="https://cloud.timeedit.net/vid/web/sbgo/ri1Q50.html" class="grid-item"></iframe>
+          <div class="grid-item" style="text-align: center; align-items: center; display: flex; flex-direction: column; justify-content: center;">
+            <p style="margin: 0;">Book grupperom med qr-koden</p>
+            <img src="images/arrowdowntest.gif" alt="Arrow Icon" title="Arrow Icon" style="width: 100px; height: 100px;">
+          </div>
+          <iframe src="https://cloud.timeedit.net/vid/web/sbgo/ri1Q51.html" class="grid-item"></iframe>
+          <img src="images/bookrom.png" class="grid-item" style="width: 30%; height: 30%; margin: 0 auto;" alt="Grupperom booking" title="Book rom">
+        </div>
+      </div>
+    </div>
+  </div>
   
   <%- include('./partials/scripts.ejs') %>
 </body>

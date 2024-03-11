@@ -6,7 +6,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
-const axios = require('axios');
 
 // Import route handlers
 const indexRouter = require('./routes/index');
@@ -21,10 +20,27 @@ const logRouter = require('./routes/log');
 const app = express();
 
 // Normalize the port for the server to listen on
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '8080');
 
-// Start the server and log the port
+// Page counter
+const pageCounts = {};
+
+// Add rout for counting page views
+app.get('/visit', (req, res) => {
+  const page = req.query.page;
+  pageCounts[page] = (pageCounts[page] || 0) + 1;
+  res.json({ count: pageCounts[page] });
+});
+
+module.exports.pageCounts = pageCounts;
+
+/* // Start the server and log the port on localhost
 app.listen(port, () => {
+  console.log(`Server is running on PORT ${port}`);
+}); */
+
+// Change this for the listen above to go live on local network. 0.0.0.0 --> server IP address. Port is still 8080.
+app.listen(port, '10.205.64.159', () => {
   console.log(`Server is running on PORT ${port}`);
 });
 
@@ -44,8 +60,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Define routes for different parts of the application
 app.use('/', indexRouter);

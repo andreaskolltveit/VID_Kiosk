@@ -16,7 +16,7 @@ Campus Kiosk is a user-friendly web application designed to serve as a touch-ena
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-username/your-kiosk-repo.git
+    git clone https://github.com/andreaskolltveit/VID_Kiosk.git
     ```
 
 2. Install dependencies:
@@ -27,9 +27,6 @@ Campus Kiosk is a user-friendly web application designed to serve as a touch-ena
 3. Set Environment Variables:
     Create a `.env` file in the root directory and set the following variables:
     ```env
-    PORT=3000
-    SESSION_SECRET=hard_to_swallow_pills
-    ```
 
 4. Run the application:
     ```bash

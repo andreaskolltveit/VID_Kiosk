@@ -11,16 +11,9 @@
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
     <%- include('./partials/navbar.ejs') %>
   </nav>
-  
-  <div class="container-fluid full-height">
-    <div class="row justify-content-center full-height">
-      <div class="col full-height">
-        <div class="embed-responsive embed-responsive-16by9 full-height">
-          <!-- Embed from the source URL instead of using an iframe. Please update the website below accordingly. Note that some websites may prevent this, and as a result, it might not work. -->
-          <iframe class="custom-iframe embed-responsive-item" src="https://use.mazemap.com/#v=1&zlevel=1&center=5.362868,60.378590&zoom=17.9&sharepoitype=poi&sharepoi=1000694510&campusid=704" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
+
+  <div class="embed-responsive embed-responsive-16by9 full-height">
+    <iframe class="custom-iframe embed-responsive-item" src="https://kiosk.mazemap.com/v2/?customerid=272&kioskid=c396fae9-c1d2-46cb-bd89-4d08cf82402c" allowfullscreen></iframe>
   </div>
 
   <%- include('./partials/scripts.ejs') %>

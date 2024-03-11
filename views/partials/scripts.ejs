@@ -33,32 +33,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
 </script>
 
-<!-- Script for logging page visits and displaying a log table -->
 <script>
-    // Log a message indicating that the script is running
-    console.log('Script is running.');
-  
-    // Retrieve stored page visit counts from localStorage or initialize an empty object
-    const storedPageCounts = JSON.parse(localStorage.getItem('pageCounts')) || {};
-    console.log('Stored Page Counts:', storedPageCounts);
-  
-    // Identify the current page using its pathname
-    const currentPage = window.location.pathname;
-  
-    // Update the visit count for the current page
-    storedPageCounts[currentPage] = (storedPageCounts[currentPage] || 0) + 1;
-    console.log(`Visited ${currentPage}. New count: ${storedPageCounts[currentPage]}`);
-  
-    // Save the updated pageCounts back to localStorage
-    localStorage.setItem('pageCounts', JSON.stringify(storedPageCounts));
-  
-    // Display the page visit log in a table on the webpage
-    const logTableBody = document.getElementById('logTableBody');
-    Object.entries(storedPageCounts).forEach(([page, count]) => {
+  // Log a message indicating that the script is running
+  console.log('Script is running.');
+
+  // Identify the current page using its pathname
+  const currentPage = window.location.pathname;
+
+  // Send a request to the server to increment the visit count for the current page
+  fetch(`/visit?page=${encodeURIComponent(currentPage)}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(`Visited ${currentPage}. New count: ${data.count}`);
+
+      // Display the updated visit count in a table on the webpage
+      const logTableBody = document.getElementById('logTableBody');
       const row = document.createElement('tr');
-      row.innerHTML = `<td>${page}</td><td>${count}</td>`;
+      row.innerHTML = `<td>${currentPage}</td><td>${data.count}</td>`;
       logTableBody.appendChild(row);
     });
 </script>

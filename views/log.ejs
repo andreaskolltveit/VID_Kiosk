@@ -4,6 +4,12 @@
 <head>
   <title>VID Service Kiosk</title>
   <%- include('./partials/head.ejs') %>
+  <style>
+    .custom-iframe {
+      width: 100%;
+      height: 70vh;
+    }
+  </style>
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
@@ -21,9 +27,22 @@
         </tr>
       </thead>
       <tbody id="logTableBody">
-        <!-- Page visit counts will be inserted here dynamically -->
+        <% for (let page in pageCounts) { %>
+          <tr>
+            <td><%= page %></td>
+            <td><%= pageCounts[page] %></td>
+          </tr>
+        <% } %>
       </tbody>
     </table>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col">
+        <iframe class="custom-iframe" src="https://cloud.timeedit.net/vid/web/sbgo/riqY85ZZZX8bB01ZwYQZjy5HmbQQ6x0jn1)uYaQYj(pQagoug6ZnZ00byYv60YmZqXQo.html" allowfullscreen></iframe>
+      </div>
+    </div>
   </div>
 
   <%- include('./partials/scripts.ejs') %>
