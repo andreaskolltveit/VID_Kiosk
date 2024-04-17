@@ -2,50 +2,75 @@
 <html lang="en">
 
 <head>
-  <title>VID Service Kiosk</title>
+  <title>Log Page</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <%- include('./partials/head.ejs') %>
-  <style>
-    .custom-iframe {
-      width: 100%;
-      height: 70vh;
-    }
-  </style>
 </head>
 
-<body class="position-relative" data-bs-spy="scroll">
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
-    <%- include('./partials/navbar.ejs') %>
-  </nav>
-  
+<body>
   <div class="container mt-5">
-    <h2>Page Visit Log</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Page</th>
-          <th>Visits</th>
-        </tr>
-      </thead>
-      <tbody id="logTableBody">
-        <% for (let page in pageCounts) { %>
-          <tr>
-            <td><%= page %></td>
-            <td><%= pageCounts[page] %></td>
-          </tr>
-        <% } %>
-      </tbody>
-    </table>
-  </div>
+    <h1>Log Page</h1>
 
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col">
-        <iframe class="custom-iframe" src="https://cloud.timeedit.net/vid/web/sbgo/riqY85ZZZX8bB01ZwYQZjy5HmbQQ6x0jn1)uYaQYj(pQagoug6ZnZ00byYv60YmZqXQo.html" allowfullscreen></iframe>
+    <form action="/log/create-ticket" method="POST">
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" class="form-control" id="subject" name="subject" required>
       </div>
-    </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="requestTypeId">Request Type ID:</label>
+          <input type="text" class="form-control" id="requestTypeId" name="requestTypeId" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="userId">User ID:</label>
+          <input type="text" class="form-control" id="userId" name="userId" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="ticketTypeId">Ticket Type ID:</label>
+          <input type="text" class="form-control" id="ticketTypeId" name="ticketTypeId" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="ticketPriorityId">Ticket Priority ID:</label>
+          <input type="text" class="form-control" id="ticketPriorityId" name="ticketPriorityId" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="ticketStatusId">Ticket Status ID:</label>
+          <input type="text" class="form-control" id="ticketStatusId" name="ticketStatusId" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="ticketSourceId">Ticket Source ID:</label>
+          <input type="text" class="form-control" id="ticketSourceId" name="ticketSourceId" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="ticketAssignedDepartmentZoneId">Assigned Department Zone ID:</label>
+          <input type="text" class="form-control" id="ticketAssignedDepartmentZoneId" name="ticketAssignedDepartmentZoneId" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ticketAssignedTeamId">Assigned Team ID:</label>
+        <input type="text" class="form-control" id="ticketAssignedTeamId" name="ticketAssignedTeamId" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Create Ticket</button>
+    </form>
   </div>
 
-  <%- include('./partials/scripts.ejs') %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -36,23 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </script>
 
+<!-- idle 5 min -> index -->
 <script>
-  // Log a message indicating that the script is running
-  console.log('Script is running.');
+  let idleTime = 0;
+  const idleInterval = setInterval(timerIncrement, 60000); // 1 minute
 
-  // Identify the current page using its pathname
-  const currentPage = window.location.pathname;
-
-  // Send a request to the server to increment the visit count for the current page
-  fetch(`/visit?page=${encodeURIComponent(currentPage)}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(`Visited ${currentPage}. New count: ${data.count}`);
-
-      // Display the updated visit count in a table on the webpage
-      const logTableBody = document.getElementById('logTableBody');
-      const row = document.createElement('tr');
-      row.innerHTML = `<td>${currentPage}</td><td>${data.count}</td>`;
-      logTableBody.appendChild(row);
-    });
+  function timerIncrement() {
+    idleTime++;
+    if (idleTime >= 1) { // Set time for idle to jump to index
+      window.location.href = '/';
+    }
+  }
 </script>
