@@ -11,7 +11,7 @@ async function createTicketWithApiKey(ticketData) {
             }
         };
 
-        const response = await axios.post('https://pureservice/api/tickets/', ticketData, config);
+        const response = await axios.post('https://vid-serviceportalen.pureservice/api/tickets/', ticketData, config);
         return response.data;
     } catch (error) {
         console.error('Error creating ticket with PureService API:', error);
@@ -20,6 +20,5 @@ async function createTicketWithApiKey(ticketData) {
 }
 
 module.exports = {
-    fetchDataWithApiKey,
     createTicketWithApiKey
 };

@@ -1,6 +1,6 @@
 const express = require('express');
-const axios = require('axios');
 const router = express.Router();
+const service = require('../Services/pureservice'); // Update this with the correct path
 
 router.get('/', (req, res) => {
   res.render('log');
@@ -56,20 +56,9 @@ router.post('/create-ticket', async (req, res) => {
       ]
     };
 
-    const config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https://vid-serviceportalen.pureservice/api/ticket',
-      headers: {
-        'X-Authorization-Key': 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQdXJlc2VydmljZS5BcGkuS2V5IiwianRpIjoiOHVyS2dncWgrMWczeWJxMy9xbVdrSXJFRm1QaVowSjB4MlZXN0ladFlLc0tmVkIyclJNYUpiNC9GVm5hV25abEc0YUppK1RFUktXZ0haYWpFbGprMFE9PSJ9.-JbGimV16ogTElUyJwlLzg-nv8zo5plAuUYdoygULbU',
-        'Content-Type': 'application/vnd.api+json'
-      },
-      data: newTicketData
-    };
+    const response = await service.createTicketWithApiKey(newTicketData);
 
-    const response = await axios(config);
-
-    console.log('New ticket created:', response.data);
+    console.log('New ticket created:', response);
     res.status(200).send('New ticket created successfully');
   } catch (error) {
     console.error('Error creating new ticket:', error);
