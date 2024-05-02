@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>VID Service Kiosk</title>
+    <link href="../stylesheets/home.css" rel="stylesheet">
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body class="position-relative" data-bs-spy="scroll">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
+        <%- include('./partials/navbar.ejs') %>
+    </nav>
+    <header id="home" class="d-flex align-items-center justify-content-center">
+        <div class="container-fluid header-content text-center">
+            <div class="row">
+                <div class="col">
+                    <h1>Book tjenesten du trenger her, og vi vil kontakte deg</h1>
+                    <div class="buttons-container d-flex justify-content-center flex-wrap">
+                        <button class="btn btn-primary m-2" data-bs-toggle="toast" data-bs-target="#itsupport">
+                            <img src="images/it.png" alt="Image 1" width="200" height="200" style="border-radius: 10px;">
+                            <div class="button-text">IT Support</div>
+                        </button>
+                        <button class="btn btn-primary m-2" data-bs-toggle="toast" data-bs-target="#bibliotek">
+                            <img src="images/library.png" alt="Image 2" width="200" height="200" style="border-radius: 10px;">
+                            <div class="button-text">Bibliotek</div>
+                        </button>
+                        <button class="btn btn-primary m-2" data-bs-toggle="toast" data-bs-target="#studentservice">
+                            <img src="images/student.png" alt="Image 3" width="200" height="200" style="border-radius: 10px;">
+                            <div class="button-text">Student Service</div>
+                        </button>
+                        <button class="btn btn-primary m-2" data-bs-toggle="toast" data-bs-target="#prest">
+                            <img src="images/timeedit.png" alt="Image 4" width="200" height="200" style="border-radius: 10px;">
+                            <div class="button-text">Studentprest</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast" id="bookit" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Book IT</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <h5>Booke hjelp / møte med IT</h5>
+                <p>Fyll ut skjemaet og trykk send for å booke møte med IT.</p>
+                <form action="/epost/it" method="post">
+                    <label for="studentnumber">Student Number:</label><br>
+                    <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
+                    <label for="emne">Emne:</label><br>
+                    <input type="text" id="emne" name="emne"><br>
+                    <label for="dropdown">Velg ein kategori:</label><br>
+                    <select id="dropdown" name="dropdown">
+                        <option value="wi-fi">Wi-Fi</option>
+                        <option value="wi-fi">Program</option>
+                        <option value="program">PC hjelp</option>
+                        <option value="passord">Passord</option>
+                        <option value="online-hjelp">Annet</option>
+                    </select><br>
+                    <label for="notater">Notater:</label><br>
+                    <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <div class="toast" id="bibliotek" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Bibliotek</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <h5>Book bibliotek</h5>
+                <p>Fyll ut skjemaet og trykk send for å booke møte med biblioteket.</p>
+                <form action="/epost/bib" method="post">
+                    <label for="studentnumber">Student Number:</label><br>
+                    <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
+                    <label for="emne">Emne:</label><br>
+                    <input type="text" id="emne" name="emne"><br>
+                    <label for="dropdown">Choose a category:</label><br>
+                    <select id="dropdown" name="dropdown">
+                        <option value="lån">Lån</option>
+                        <option value="kurs">Kurs</option>
+                        <option value="grupperom">Støtte</option>
+                    </select><br>
+                    <label for="notater">Notater:</label><br>
+                    <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <div class="toast" id="studentservice" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Student Service</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <h5>Book student service</h5>
+                <p>Fyll ut skjemaet og trykk send for å booke møte med student service.</p>
+                <form action="/epost/stud" method="post">
+                    <label for="studentnumber">Student nummer:</label><br>
+                    <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
+                    <label for="emne">Emne:</label><br>
+                    <input type="text" id="emne" name="emne"><br>
+                    <label for="notater">Notater:</label><br>
+                    <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <div class="toast" id="prest" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Studentprest</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <h5>Book studentprest</h5>
+                <p>Fyll ut skjemaet og trykk send for å booke møte med studentprest.</p>
+                <form action="/epost/prest" method="post">
+                    <label for="studentnumber">Student nummer:</label><br>
+                    <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
+                    <label for="emne">Emne:</label><br>
+                    <input type="text" id="emne" name="emne"><br>
+                    <label for="notater">Notater:</label><br>
+                    <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+    </header>
+    <%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

@@ -1,8 +1,8 @@
 # Campus Kiosk Web Application
 
-## Overview
+## Project Description
 
-Campus Kiosk is a user-friendly web application designed to serve as a touch-enabled kiosk on campus. It empowers students to effortlessly access essential information, submit tickets, and book rooms. The application offers a dynamic method to accommodate various modes of information provision, enhancing the overall campus experience.
+The Campus Kiosk Web Application is a user-friendly touch-enabled kiosk designed to enhance the overall campus experience. It provides students with easy access to essential information, ticket submission, and room booking. The application utilizes various technologies to deliver a dynamic and responsive interface.
 
 ## Technologies Used
 
@@ -27,6 +27,8 @@ Campus Kiosk is a user-friendly web application designed to serve as a touch-ena
 3. Set Environment Variables:
     Create a `.env` file in the root directory and set the following variables:
     ```env
+    # Add your environment variables here
+    ```
 
 4. Run the application:
     ```bash
@@ -39,8 +41,8 @@ This will start the application at http://localhost:3000/
 
 ### Kiosk Interface:
 
-- Navigate to the kiosk interface to access a touch-enabled screen for campus-related tasks.
+- Access the touch-enabled kiosk interface to perform various campus-related tasks.
 
 ### Dynamic Information Submission:
 
-- Use the kiosk to submit tickets, book rooms, and engage with various campus services.
+- Utilize the kiosk to submit tickets, book rooms, and engage with different campus services.

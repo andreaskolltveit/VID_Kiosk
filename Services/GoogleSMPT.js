@@ -7,8 +7,8 @@ const gmailTransporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-      user: "vidkiosk@gmail.com",
-      pass: "oznk ahfb vomq diyn",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
 });
 
@@ -24,7 +24,7 @@ const officeTransporter = nodemailer.createTransport({
 });
 
 // Function to send email
-function sendEmail() {
+function sendEmail(mailOptions) {
     gmailTransporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.error('Error sending email:', error);

@@ -1,10 +1,11 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const createError = require('http-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const axios = require('axios');
+
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const itsupportRouter = require('./routes/ITsupport');
@@ -13,6 +14,7 @@ const studentserviceRouter = require('./routes/studentservice');
 const mazemapRouter = require('./routes/mazemap');
 const nystudentRouter = require('./routes/nystudent');
 const logRouter = require('./routes/log');
+const epostRouter = require('./routes/epost');
 
 const app = express();
 
@@ -24,7 +26,7 @@ const port = normalizePort(process.env.PORT || '8080');
 
 
 // Localhost for testing
-app.listen(3000, 'localhost', () => {
+app.listen(3000, '127.0.0.1', () => {
   console.log(`Server is running on http://localhost:3000`);
 });
 
@@ -45,6 +47,7 @@ app.use('/studentservice', studentserviceRouter);
 app.use('/mazemap', mazemapRouter);
 app.use('/nystudent', nystudentRouter);
 app.use('/log', logRouter);
+app.use('/epost', epostRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
@@ -72,14 +75,4 @@ function normalizePort(val) {
   }
 
   return false;
-}
-
-async function fetchDataFromPureServiceAPI() {
-  try {
-      const response = await axios.get('https://pureservice/api/data');
-      return response.data;
-  } catch (error) {
-      console.error('Error fetching data from PureService API:', error);
-      throw error;
-  }
 }

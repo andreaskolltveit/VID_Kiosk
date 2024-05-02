@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const apiKey = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQdXJlc2VydmljZS5BcGkuS2V5IiwianRpIjoiOHVyS2dncWgrMWczeWJxMy9xbVdrSXJFRm1QaVowSjB4MlZXN0ladFlLc0tmVkIyclJNYUpiNC9GVm5hV25abEc0YUppK1RFUktXZ0haYWpFbGprMFE9PSJ9.-JbGimV16ogTElUyJwlLzg-nv8zo5plAuUYdoygULbU';
+const apiKey = process.env.API_KEY;
 
 async function createTicketWithApiKey(ticketData) {
     try {
