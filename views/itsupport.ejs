@@ -21,6 +21,7 @@
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#feideToast">Om Feide</button>
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#office365Toast">Gratis Microsoft Office 365</button>
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#printToast">Utskrift</button>
+          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#bookit">Book IT</button>
     
           <p>Finner du ikke svar over, ta kontakt med IT-support på e-post helpdesk@vid.no.</p>
     
@@ -87,6 +88,33 @@
         <img src="../images/microsoft.png" alt="Microsoft" style="border-radius: 10px;">
     </div>
 
+    <div class="toast" id="bookit" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Book IT</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <h5>Booke hjelp / møte med IT</h5>
+        <p>Fyll ut skjemaet og trykk send for å booke møte med IT.</p>
+        <form action="/form1" method="post">
+          <label for="emne">Emne:</label><br>
+          <input type="text" id="emne" name="emne"><br>
+          <label for="dropdown">Choose a category:</label><br>
+          <select id="dropdown" name="dropdown">
+              <option value="wi-fi">Wi-Fi</option>
+              <option value="program">Program</option>
+              <option value="passord">Passord</option>
+              <option value="online-hjelp">Online-Hjelp</option>
+          </select><br>
+          <label for="studentnumber">Student Number:</label><br>
+          <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
+          <label for="notater">Notater:</label><br>
+          <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
+          <input type="submit" value="Submit">
+      </form>
+      </div>
+    </div>
+
         <div class="toast" id="utskriftToast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
           <strong class="me-auto">Utskrift</strong>
@@ -105,10 +133,8 @@
             <li>Logg inn på printeren med studentnummer og passord eller med kort.</li>
             <li>Velg SafeQ Print, og velg dokumentene du skal skrive ut.</li>
         </ol>
-
       </div>
   </div>
-
   </div>
 
   

@@ -23,14 +23,6 @@ const officeTransporter = nodemailer.createTransport({
     }
 });
 
-// Define email options
-const mailOptions = {
-    from: 'VID Kiosk',
-    to: 'andreas.kolltveit@vid.no',
-    subject: 'Test Email',
-    text: 'Denne eposten er sendt med nodemailer via kiosk applikasjonen.'
-};
-
 // Function to send email
 function sendEmail() {
     gmailTransporter.sendMail(mailOptions, (error, info) => {

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const service = require('../Services/pureservice'); // Update this with the correct path
+const service = require('../Services/pureservice');
 
 router.get('/', (req, res) => {
   res.render('log');
