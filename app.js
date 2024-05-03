@@ -8,7 +8,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 const indexRouter = require('./routes/index');
-const itsupportRouter = require('./routes/ITsupport');
+const itsupportRouter = require('./routes/itsupport');
 const libraryRouter = require('./routes/library');
 const studentserviceRouter = require('./routes/studentservice');
 const mazemapRouter = require('./routes/mazemap');

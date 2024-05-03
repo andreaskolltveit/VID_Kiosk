@@ -4,6 +4,14 @@
 <head>
   <title>Studentservice</title>
   <%- include('./partials/head.ejs') %>
+  <style>
+    .box-container {
+      display: flex;
+    }
+    .box {
+      flex: 1;
+    }
+  </style>
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
@@ -14,29 +22,44 @@
   <div class="container-fluid content-container d-flex align-items-center justify-content-center" style="height: 100vh;">
     <div class="row justify-content-center">
       <div class="col">
-        <h1>Studentservice</h1>
-
-        <p>Studentservice er et kontaktledd mellom høgskolen og studentene.</p>
-
-        <p>Hos Studentservice kan du få svar på spørsmål som:</p>
-        <ul>
-          <li>Betaling av semester- og studieavgift og tredjepartsfakturering</li>
-          <li>Lånekassen</li>
-          <li>Bekreftelser</li>
-          <li>Studentforsikringer</li>
-          <li>Studentbevis-app</li>
-          <li>Studentweb</li>
-          <li>Endring av navn</li>
-          <li>Oppsigelse av studieplass</li>
-        </ul>
-
-        <p>Du kan komme i kontakt med Studentservice via Serviceportalen eller studentservice@vid.no. Husk å opplyse om ditt studentnummer når du tar kontakt.</p>
-
-        <p>Studentservice Bergen har åpent mandag, tirsdag og torsdag fra klokken 8.30 til 14.30. Studentservice i Oslo og Stavanger svarer på henvendelser fra Bergen onsdager og fredager.</p>
+        <div class="d-flex box-container">
+          <div class="box">
+            <h1>Studentservice</h1>
+            <p>Hos Studentservice kan du få svar på spørsmål som:</p>
+            <ul>
+              <li>Betaling av semester- og studieavgift og tredjepartsfakturering</li>
+              <li>Lånekassen</li>
+              <li>Bekreftelser</li>
+              <li>Studentforsikringer</li>
+              <li>Studentbevis-app</li>
+              <li>Studentweb</li>
+              <li>Endring av navn</li>
+              <li>Oppsigelse av studieplass</li>
+            </ul>
+            <p>Du kan komme i kontakt med Studentservice via Serviceportalen eller studentservice@vid.no. Husk å opplyse om ditt studentnummer når du tar kontakt.</p>
+            <p>Studentservice Bergen har åpent mandag, tirsdag og torsdag fra klokken 8.30 til 14.30.</p>
+          </div>
+          <div class="box">
+            <h1>Eksamenskontro</h1>
+            <p>Eksamenskontoret hjelper deg med følgende ang. ekseman:.</p>
+            <ul>
+              <li>Oppmelding til eksamen</li>
+              <li>Trekk fra eksamen</li>
+              <li>Tilrettelegging</li>
+              <li>Begrunnelse</li>
+              <li>Klage</li>
+              <li>Utsatt eksamen</li>
+              <li>Forbedring av karakter</li>
+              <li>Forlenget studieløp</li>
+            </ul>
+            <p>Du kan komme i kontakt med Eksamenskontoret via Serviceportalen eller eksamen@vid.no. Husk å opplyse om ditt studentnummer når du tar kontakt.</p>
+            <p>Du kan også kontakte Eksamenskontoret via book & kontakt i kiosken.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
+  </div>  
+
   <%- include('./partials/scripts.ejs') %>
 </body>
 

@@ -29,8 +29,12 @@
                             <img src="images/student.png" alt="Image 3" width="200" height="200" style="border-radius: 10px;">
                             <div class="button-text">Student Service</div>
                         </button>
+                        <button class="btn btn-primary m-2" data-bs-toggle="toast" data-bs-target="#studentservice">
+                            <img src="images/student.png" alt="Image 3" width="200" height="200" style="border-radius: 10px;">
+                            <div class="button-text">Eksamenskontoret</div>
+                        </button>
                         <button class="btn btn-primary m-2" data-bs-toggle="toast" data-bs-target="#prest">
-                            <img src="images/timeedit.png" alt="Image 4" width="200" height="200" style="border-radius: 10px;">
+                            <img src="images/prest.jpg" alt="Image 4" width="200" height="200" style="border-radius: 10px;">
                             <div class="button-text">Studentprest</div>
                         </button>
                     </div>
@@ -51,17 +55,9 @@
                     <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
                     <label for="emne">Emne:</label><br>
                     <input type="text" id="emne" name="emne"><br>
-                    <label for="dropdown">Velg ein kategori:</label><br>
-                    <select id="dropdown" name="dropdown">
-                        <option value="wi-fi">Wi-Fi</option>
-                        <option value="wi-fi">Program</option>
-                        <option value="program">PC hjelp</option>
-                        <option value="passord">Passord</option>
-                        <option value="online-hjelp">Annet</option>
-                    </select><br>
-                    <label for="notater">Notater:</label><br>
+                    <label for="notater">Henvendelse:</label><br>
                     <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Send">
                 </form>
             </div>
         </div>
@@ -79,15 +75,9 @@
                     <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
                     <label for="emne">Emne:</label><br>
                     <input type="text" id="emne" name="emne"><br>
-                    <label for="dropdown">Choose a category:</label><br>
-                    <select id="dropdown" name="dropdown">
-                        <option value="lån">Lån</option>
-                        <option value="kurs">Kurs</option>
-                        <option value="grupperom">Støtte</option>
-                    </select><br>
-                    <label for="notater">Notater:</label><br>
+                    <label for="notater">Henvendelse:</label><br>
                     <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Send">
                 </form>
             </div>
         </div>
@@ -105,9 +95,29 @@
                     <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
                     <label for="emne">Emne:</label><br>
                     <input type="text" id="emne" name="emne"><br>
-                    <label for="notater">Notater:</label><br>
+                    <label for="notater">Henvendelse:</label><br>
                     <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>
+
+        <div class="toast" id="eksamenskontor" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Eksamenskontor</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <h5>Book eksamenskontor</h5>
+                <p>Fyll ut skjemaet og trykk send for å booke møte med eksamenskontor.</p>
+                <form action="/epost/eks" method="post">
+                    <label for="studentnumber">Student nummer:</label><br>
+                    <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
+                    <label for="emne">Emne:</label><br>
+                    <input type="text" id="emne" name="emne"><br>
+                    <label for="notater">Henvendelse:</label><br>
+                    <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
+                    <input type="submit" value="Send">
                 </form>
             </div>
         </div>
@@ -125,9 +135,9 @@
                     <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
                     <label for="emne">Emne:</label><br>
                     <input type="text" id="emne" name="emne"><br>
-                    <label for="notater">Notater:</label><br>
+                    <label for="notater">Henvendelse:</label><br>
                     <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Send">
                 </form>
             </div>
         </div>
