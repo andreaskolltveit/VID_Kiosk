@@ -102,7 +102,7 @@ router.post('/eks', (req, res) => {
   // Define mail options
   const mailOptions = {
     from: 'VID Kiosk Bergen',
-    to: 'eksamenskontoret@vid.no',
+    to: 'eksamen@vid.no',
     subject: 'New form from Kiosk Bergen',
     html: htmlContent
   };

@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- idle 5 min -> index -->
 <script>
   let idleTime = 0;
-  const idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+  const idleInterval = setInterval(timerIncrement, 300000); // 5 minutes
 
   function timerIncrement() {
     idleTime++;
-    if (idleTime >= 1) { // Set time for idle to jump to index
+    if (idleTime >= 5) { // Set time for idle to jump to index
       window.location.href = '/';
     }
   }
