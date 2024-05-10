@@ -12,6 +12,10 @@ The Campus Kiosk Web Application is a user-friendly touch-enabled kiosk designed
 - **Bootstrap (v5.3.2):** Front-end framework for building responsive and visually appealing web pages.
 - **Axios:** HTTP client for making requests to external APIs.
 
+## Middleware
+- **GoogleSMTP:** SMTP service for sending emails via Google Mail service.
+- **PureService:** API service for accessing PureService functionalities.
+
 ## Installation
 
 1. **Clone the Repository:**
@@ -27,7 +31,10 @@ The Campus Kiosk Web Application is a user-friendly touch-enabled kiosk designed
 3. Set Environment Variables:
     Create a `.env` file in the root directory and set the following variables:
     ```env
-    # Add your environment variables here
+EMAIL_USER=
+EMAIL_PASS=
+
+API_KEY=
     ```
 
 4. Run the application:
@@ -35,14 +42,10 @@ The Campus Kiosk Web Application is a user-friendly touch-enabled kiosk designed
     npm start
     ```
 
-This will start the application at http://localhost:3000/
-
 ## Usage
 
-### Kiosk Interface:
+Kiosk based interface with buttons. Each button represents a function for getting help. It is divided by 1. line departments, IT support, Bibliotek, Studentservice. Booking rooms and listing for TimeEdit, Contactform via PureService and visiting registration via Phonero.
 
-- Access the touch-enabled kiosk interface to perform various campus-related tasks.
+## Author
 
-### Dynamic Information Submission:
-
-- Utilize the kiosk to submit tickets, book rooms, and engage with different campus services.
+Andreas Kolltveit
