@@ -20,15 +20,15 @@ const app = express();
 
 const port = normalizePort(process.env.PORT || '8080');
 
-app.listen(port, '10.205.64.155', () => {
+/* app.listen(port, '10.205.64.155', () => {
   console.log(`Server is running on PORT ${port}`);
-});
+}); */
 
 
-/* Localhost for testing
+//Localhost for testing
 app.listen(3000, '127.0.0.1', () => {
   console.log(`Server is running on http://localhost:3000`);
-}); */
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

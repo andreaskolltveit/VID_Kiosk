@@ -5,67 +5,44 @@
   <title>Log Page</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <%- include('./partials/head.ejs') %>
+  <style>
+    body {
+      position: relative;
+    }
+
+    iframe {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .floating-text {
+      position: fixed;
+      top: 110px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 18px;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container mt-5">
-    <h1>Log Page</h1>
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
+    <%- include('./partials/navbar.ejs') %>
+  </nav>
 
-    <form action="/log/create-ticket" method="POST">
-      <div class="form-group">
-        <label for="subject">Subject:</label>
-        <input type="text" class="form-control" id="subject" name="subject" required>
-      </div>
+  <iframe src="https://bnvisitor.no/visitor-registration/site/1b84e38f27aa7134246cb2bc385922f015ff32cb"></iframe>
 
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="requestTypeId">Request Type ID:</label>
-          <input type="text" class="form-control" id="requestTypeId" name="requestTypeId" required>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="userId">User ID:</label>
-          <input type="text" class="form-control" id="userId" name="userId" required>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="ticketTypeId">Ticket Type ID:</label>
-          <input type="text" class="form-control" id="ticketTypeId" name="ticketTypeId" required>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="ticketPriorityId">Ticket Priority ID:</label>
-          <input type="text" class="form-control" id="ticketPriorityId" name="ticketPriorityId" required>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="ticketStatusId">Ticket Status ID:</label>
-          <input type="text" class="form-control" id="ticketStatusId" name="ticketStatusId" required>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="ticketSourceId">Ticket Source ID:</label>
-          <input type="text" class="form-control" id="ticketSourceId" name="ticketSourceId" required>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="ticketAssignedDepartmentZoneId">Assigned Department Zone ID:</label>
-          <input type="text" class="form-control" id="ticketAssignedDepartmentZoneId" name="ticketAssignedDepartmentZoneId" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="ticketAssignedTeamId">Assigned Team ID:</label>
-        <input type="text" class="form-control" id="ticketAssignedTeamId" name="ticketAssignedTeamId" required>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Create Ticket</button>
-    </form>
+  <div class="floating-text">
+    Fyll inn ditt telefonnummer, navn og evt. bedrift og kven du skal besøke. Da vil det bli sendt ein melding til vedkommende om at du er ankommet.
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

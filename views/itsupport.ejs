@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   
   <head>
-    <title>IT Support</title>
+    <title>IT-støtte</title>
     <%- include('./partials/head.ejs') %>
   </head>
 
@@ -14,16 +14,16 @@
     <div class="container-fluid content-container d-flex align-items-center justify-content-center" style="height: 100vh;">
       <div class="row justify-content-center">
         <div class="col text-center">
-          <h1>IT-support for studenter</h1>
-          <p>VID tilbyr deg som student et utvalg IT-verktøy og tjenester, men presiserer at vi normalt ikke hjelper til med tekniske feil eller endring av innstillinger på din PC/Mac. Det er et krav at alle våre studenter har nyere operativsystem med antivirus, og gjennomfører regelmessige oppdateringer av all relevant programvare for å sikre stabil funksjonalitet.</p>
+          <h1>IT-støtte for studenter</h1>
+          <p>VID tilbyr deg som student et utvalg av IT-verktøy og tjenester, men presiserer at vi normalt ikke hjelper til med tekniske feil eller endring av innstillinger på din PC/Mac. Det er et krav at alle våre studenter har nyere operativsystem med antivirus, og gjennomfører regelmessige oppdateringer av all relevant programvare for å sikre stabil funksjonalitet.</p>
     
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#wifiToast">Trådløst nettverk</button>
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#feideToast">Om Feide</button>
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#office365Toast">Gratis Microsoft Office 365</button>
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#bookit">Book IT</button>
           <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#printToast">Utskrift</button>
-    
-          <p>Finner du ikke svar over, ta kontakt med IT-support på e-post helpdesk@vid.no.</p>
+          <p></p>
+          <p>Finner du ikke svar over, ta kontakt med IT-støtte på e-post helpdesk@vid.no.</p>
     
           <p>Vi holder åpent mellom kl. 08.00–15.30.</p>
         </div>
@@ -62,11 +62,11 @@
       <div class="toast-body">
         <p>Opprett Feide-konto eller glemt passord</p>
         <ol>
-          <li>Scann qr-koden nedenfor.</li>
-            <li>Gå til Passordweb linken på siden.</li>
+          <li>Skann QR-koden nedenfor.</li>
+            <li>Gå til Passordweb-linken på siden.</li>
             <li>Følg veiledningen og velg "Aktiver / Glemt passord" eller "Endre passord".</li>
-            <li>fullfør oppsettet og skriv inn nødvendig informasjon.</li>
-            <li>Pinkoden skal du ha mottatt pr. e-post i fra VID.</li>
+            <li>Fullfør oppsettet og skriv inn nødvendig informasjon.</li>
+            <li>Pinkoden skal du ha mottatt pr. e-post fra VID.</li>
             <li>Kontakt studentservice om du har mistet den.</li>
             <li>Etter at du har opprettet Feide-kontoen din må du vente i 90 minutter før du logger deg på Feide. Hvis du prøver å logge deg på før det har gått 90 minutter blir kontoen din låst og du må gjøre alt på nytt. Ta godt vare på passordet du lager til Feide-kontoen din. Det kommer du til å bruke mye!</li>
         </ol>
@@ -82,8 +82,8 @@
       <div class="toast-body">
         <h5>Microsoft Office 365 for studenter</h5>
         <p>Aktive studenter ved VID har gratis tilgang til Office 365, som inneholder Office-pakken med blant annet Teams, Word, Excel, PowerPoint og Outlook.</p>
-        <p>Du kan bruke Office 365 i skyen eller laste programmene ned så lenge du er student ved VID.</p>
-        <p>Skann qr-koden nedenfor for veiledning for aktivering.</p>  
+        <p>Du kan bruke Office 365 i skyen eller laste ned programmene så lenge du er student ved VID.</p>
+        <p>Skann QR-koden nedenfor for veiledning for aktivering.</p>  
       </div>
         <img src="../images/microsoft.png" alt="Microsoft" style="border-radius: 10px;">
     </div>
@@ -94,23 +94,23 @@
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
-        <h5>Booke hjelp / møte med IT</h5>
-        <p>Fyll ut skjemaet og trykk send for å booke møte med IT.</p>
+        <h5>Bestill hjelp / møte med IT</h5>
+        <p>Fyll ut skjemaet og trykk send for å bestille møte med IT.</p>
         <form action="/itsupport/form1" method="post">
           <label for="emne">Emne:</label><br>
           <input type="text" id="emne" name="emne"><br>
-          <label for="dropdown">Choose a category:</label><br>
+          <label for="dropdown">Velg en kategori:</label><br>
           <select id="dropdown" name="dropdown">
               <option value="wi-fi">Wi-Fi</option>
               <option value="program">Program</option>
               <option value="passord">Passord</option>
-              <option value="online-hjelp">Online-Hjelp</option>
+              <option value="online-hjelp">Onlinehjelp</option>
           </select><br>
-          <label for="studentnumber">Student Number:</label><br>
+          <label for="studentnumber">Studentnummer:</label><br>
           <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
           <label for="notater">Notater:</label><br>
           <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
-          <input type="submit" value="Submit">
+          <input type="submit" value="Send inn">
       </form>
       </div>
     </div>
@@ -123,15 +123,15 @@
       <div class="toast-body">
         <p>Aktivere utskrift</p>
         <ol>
-          <li>Gå til SafeQ nettsiden: https://safeqprint.vid.no:9443/end-user/ui/login</li>
-            <li>Lade adgangskortet ditt.</li>
-            <li>Knytte adgangkortet ditt opp mot ditt studentnummer.</li>
+          <li>Gå til SafeQ-nettsiden: https://safeqprint.vid.no:9443/end-user/ui/login</li>
+            <li>Lad adgangskortet ditt.</li>
+            <li>Knytt adgangskortet ditt til ditt studentnummer.</li>
         </ol>
         <li>For å laste opp og skrive ut:</li>
             <li>Gå til SafeQ web.</li>
-            <li>Velg upload job -> select files & last opp dokumentene.</li>
-            <li>Logg inn på printeren med studentnummer og passord eller med kort.</li>
-            <li>Velg SafeQ Print, og velg dokumentene du skal skrive ut.</li>
+            <li>Velg opplastingsjobb -> velg filer & last opp dokumenter.</li>
+            <li>Logg inn på skriveren med studentnummeret og passordet ditt eller med kortet ditt.</li>
+            <li>Velg SafeQ-utskrift og velg dokumentene du vil skrive ut.</li>
         </ol>
       </div>
   </div>
