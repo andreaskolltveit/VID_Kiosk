@@ -17,11 +17,7 @@ const logRouter = require('./routes/log');
 const epostRouter = require('./routes/epost');
 
 const app = express();
-
-// Start the server and log the port
-app.listen(port, () => {
-  console.log(`Server is running on PORT ${port}`);
-});
+const port = process.env.PORT || 4000;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -33,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 
+// Define routes
 app.use('/', indexRouter);
 app.use('/itsupport', itsupportRouter);
 app.use('/library', libraryRouter);
@@ -42,6 +39,7 @@ app.use('/nystudent', nystudentRouter);
 app.use('/log', logRouter);
 app.use('/epost', epostRouter);
 
+// Error handling
 app.use(function (req, res, next) {
   next(createError(404));
 });
@@ -52,6 +50,10 @@ app.use(function (err, req, res, next) {
 
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 module.exports = app;
