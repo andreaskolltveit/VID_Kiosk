@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: VID-Kiosk
+    env: node
+    plan: free
+    buildCommand: 'npm install'
+    startCommand: 'npm start'
