@@ -52,7 +52,8 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-app.listen(port, () => {
+// Start the server and bind to the specified port and host 0.0.0.0
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port ${port}`);
 });
 
