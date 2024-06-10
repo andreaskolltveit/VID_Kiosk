@@ -18,8 +18,6 @@ const epostRouter = require('./routes/epost');
 
 const app = express();
 
-const port = normalizePort(process.env.PORT || '8080');
-
 // Start the server and log the port
 app.listen(port, () => {
   console.log(`Server is running on PORT ${port}`);
@@ -57,17 +55,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    return val;
-  }
-
-  if (port >= 0) {
-    return port;
-  }
-
-  return false;
-}
