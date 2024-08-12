@@ -20,13 +20,6 @@ const epostRouter = require('./routes/epost');
 
 const app = express();
 
-const port = normalizePort(process.env.PORT || '8080');
-app.set('port', port);
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -99,17 +92,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    return val;
-  }
-
-  if (port >= 0) {
-    return port;
-  }
-
-  return false;
-}
