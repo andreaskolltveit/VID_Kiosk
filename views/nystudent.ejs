@@ -4,52 +4,177 @@
 <head>
   <title>VID Service Kiosk</title>
   <%- include('./partials/head.ejs') %>
+  <link href="../stylesheets/navbar.css" rel="stylesheet">
+  <link href="../stylesheets/style.css" rel="stylesheet">
   <style>
-    .center-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    /* Override and custom styles specific to this page */
     
-    .grid-item {
-      width: 50%;
-      height: 50%;
-      border-radius: 20px;
-      margin-bottom: 10px;
+    /* Flipbook container for 3D flip effect */
+    #flipbook {
+      width: 100%;
+      height: calc(100vh - 70px); /* Adjust according to navbar height */
+      position: relative;
+      perspective: 1500px;
+      overflow: hidden;
+      background: transparent;
     }
 
-    .arrow-icon {
-      width: auto;
+    /* Each flip page */
+    .flip-page {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      background-color: transparent;
+    }
+
+    /* Initial page positions */
+    .flip-page:nth-child(1) {
+      transform: rotateY(0deg);
+      z-index: 3;
+    }
+
+    .flip-page:nth-child(2) {
+      transform: rotateY(-180deg);
+      z-index: 2;
+    }
+
+    .flip-page:nth-child(3) {
+      transform: rotateY(-360deg);
+      z-index: 1;
+    }
+
+    /* Flipbook container flipping states */
+    #flipbook.flipped .flip-page:nth-child(1) {
+      transform: rotateY(180deg);
+    }
+
+    #flipbook.flipped .flip-page:nth-child(2) {
+      transform: rotateY(0deg);
+    }
+
+    #flipbook.flipped2 .flip-page:nth-child(2) {
+      transform: rotateY(180deg);
+    }
+
+    #flipbook.flipped2 .flip-page:nth-child(3) {
+      transform: rotateY(0deg);
+    }
+
+    /* Specific content styles within the flip pages */
+    iframe {
+      width: 80%;
       height: 80%;
-      background-color: #f0f0f0; /* Legg til ønsket bakgrunnsfarge */
-      border-radius: 10px; /* Legg til ønsket avrundingsradius */
+      border-radius: 20px;
+      border: none;
+    }
+
+    p {
+      font-size: 1.5rem;
+      text-align: center;
+      color: #333;
+    }
+
+    img {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Navigation buttons */
+    .nav-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #ff7b00;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #e66a00;
     }
   </style>
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
+  <!-- Navbar remains unchanged and consistent across pages -->
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
     <%- include('./partials/navbar.ejs') %>
   </nav>
-  
-  <div class="container-fluid full-height">
-    <div class="row justify-content-start full-height">
-      <div class="col full-height">
-        <div class="center-container" style="justify-content: center;">
-          <iframe src="https://cloud.timeedit.net/vid/web/sbgo/ri1Q50.html" class="grid-item"></iframe>
-          <div class="grid-item" style="text-align: center; align-items: center; display: flex; flex-direction: column; justify-content: center;">
-            <p style="margin: 0;">Book grupperom med qr-koden</p>
-            <img src="images/arrowdowntest.gif" alt="Arrow Icon" title="Arrow Icon" style="width: auto; height: 80%;">
-          </div>
-          <iframe src="https://cloud.timeedit.net/vid/web/sbgo/ri1Q51.html" class="grid-item"></iframe>
-          <img src="images/bookrom.png" class="grid-item" style="width: 30%; height: 30%; margin: 0 auto;" alt="Grupperom booking" title="Book rom">
-        </div>
+
+  <!-- Flipbook container with flip pages -->
+  <div id="flipbook">
+    <div class="flip-page">
+      <iframe src="https://cloud.timeedit.net/vid/web/sbgo/ri1Q50.html"></iframe>
+    </div>
+    <div class="flip-page">
+      <iframe src="https://cloud.timeedit.net/vid/web/sbgo/ri1Y51X8558188Q571Q28Y82Z9881XX212388155Y65XY82Y8X559XY72855989865809YY8XYX037627Q7.html"></iframe>
+    </div>
+    <div class="flip-page">
+      <div style="text-align: center;">
+        <p>Book grupperom med qr-koden</p>
+        <img src="images/bookrom.png" alt="Grupperom booking" title="Book rom">
       </div>
     </div>
   </div>
-  
+
+  <!-- Navigation buttons to switch between pages -->
+  <div class="nav-buttons">
+    <button id="prev-button">Previous</button>
+    <button id="next-button">Next</button>
+  </div>
+
+  <!-- JavaScript to handle page flipping -->
+  <script>
+    let currentPage = 0;
+    const totalPages = 3;  // Number of pages in the flipbook
+    const flipbook = document.getElementById('flipbook');
+    const nextButton = document.getElementById('next-button');
+    const prevButton = document.getElementById('prev-button');
+
+    nextButton.addEventListener('click', () => {
+      currentPage = (currentPage + 1) % totalPages;  // Increment page, loop back to 0 if at the end
+      updateFlipbook();
+    });
+
+    prevButton.addEventListener('click', () => {
+      currentPage = (currentPage - 1 + totalPages) % totalPages;  // Decrement page, loop back to last if at the start
+      updateFlipbook();
+    });
+
+    function updateFlipbook() {
+      if (currentPage === 0) {
+        flipbook.classList.remove('flipped', 'flipped2');
+      } else if (currentPage === 1) {
+        flipbook.classList.add('flipped');
+        flipbook.classList.remove('flipped2');
+      } else if (currentPage === 2) {
+        flipbook.classList.add('flipped2');
+      }
+    }
+  </script>
+
   <%- include('./partials/scripts.ejs') %>
 </body>
 

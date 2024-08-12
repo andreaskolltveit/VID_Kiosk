@@ -1,78 +1,127 @@
 <!DOCTYPE html>
 <html lang="no">
-  
-  <head>
-    <title>IT-støtte</title>
-    <%- include('./partials/head.ejs') %>
-  </head>
 
-  <body class="position-relative" data-bs-spy="scroll">
-    <header>
-        <%- include('./partials/navbar.ejs') %>
-    </header>
+<head>
+  <title>1. Linje</title>
+  <%- include('./partials/head.ejs') %>
+  <style>
+    /* Style for Buttons */
+    .btn {
+      display: inline-block;
+      margin: 10px 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: 2px solid #ff7b00;
+      background-color: #ff7b00;
+      color: #fff;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-    <div class="container-fluid content-container d-flex align-items-center justify-content-center" style="height: 100vh;">
-      <div class="row justify-content-center">
-        <div class="col text-center">
-          <h1>IT-støtte for studenter</h1>
-          <p>VID tilbyr deg som student et utvalg av IT-verktøy og tjenester, men presiserer at vi normalt ikke hjelper til med tekniske feil eller endring av innstillinger på din PC/Mac. Det er et krav at alle våre studenter har nyere operativsystem med antivirus, og gjennomfører regelmessige oppdateringer av all relevant programvare for å sikre stabil funksjonalitet.</p>
+    .btn:hover {
+      background-color: #e66a00;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      background-color: #cc5a00;
+      transform: translateY(0);
+    }
+
+    /* Adjustments for layout and spacing */
+    h1 {
+      margin-bottom: 30px;
+    }
     
-          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#wifiToast">Trådløst nettverk</button>
-          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#feideToast">Om Feide</button>
-          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#office365Toast">Gratis Microsoft Office 365</button>
-          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#bookit">Book IT</button>
-          <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#printToast">Utskrift</button>
-          <p></p>
-          <p>Finner du ikke svar over, ta kontakt med IT-støtte på e-post helpdesk@vid.no.</p>
-    
-          <p>Vi holder åpent mellom kl. 08.00–15.30.</p>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col text-center">
-            <h1>
-              Serviceportalen:
-            </h1>
-            <img src="../images/serviceportalen.png" alt="Serviceportalen" style="border-radius: 10px;">
-          </div>
-        </div>
+    p {
+      margin-bottom: 20px;
+    }
+
+    .toast {
+      margin-bottom: 30px;
+    }
+
+    .toast-body img {
+      margin-top: 20px;
+    }
+
+    .row {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body class="position-relative" data-bs-spy="scroll">
+  <header>
+    <%- include('./partials/navbar.ejs') %>
+  </header>
+
+  <div class="container-fluid content-container d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <h1>1. linje for studenter</h1>
+        <p>I Bergen består 1.linje av IT, Studentservice og drift. Dette er plassen du kommer om du lurer på noko, eller ikkje finner ut kor du skal henvende deg.</p>
+
+        <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#wifiToast">Trådløst nettverk</button>
+        <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#feideToast">Aktivere / glemt passord til Feide</button>
+        <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#office365Toast">Gratis Microsoft Office 365</button>
+        <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#bookit">Book IT</button>
+        <button type="button" class="btn" data-bs-toggle="toast" data-bs-target="#printToast">Utskrift</button>
+
+        <p></p>
+        <p>Finner du ikke svar over, ta kontakt på e-post helpdesk@vid.no.</p>
+        <p>Vi holder åpent mellom kl. 08.00–15.30.</p>
+      </div>
     </div>
-      
-      <div class="toast-container">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <h1>
+          Serviceportalen - Her kan du registrere saker og følge opp saker som er registrert:
+        </h1>
+        <img src="../images/serviceportalen.png" alt="Serviceportalen" style="border-radius: 10px;">
+      </div>
+    </div>
+  </div>
 
-        <div class="toast" id="wifiToast" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <strong class="me-auto">Trådløst nettverk</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            <p>Som student har du tilgang til å logge deg på det trådløse nettverket Eduroam.</p>
-            <ol>
-              <li>Brukernavn er ditt studentnummer etterfulgt av @vidstud.no. Eks: 123456@vidstud.no</li>
-              <li>Passordet er det samme som du har laget i Feide.</li>
-            </ol>
-            <p>Husk å godkjenne sertifikatet som dukker opp ved førstegangs pålogging.</p>
-          </div>
-        </div>
-        
+  <div class="toast-container">
+    <div class="toast" id="wifiToast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Trådløst nettverk</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        <p>Som student har du tilgang til å logge deg på det trådløse nettverket Eduroam.</p>
+        <ol>
+          <li>Brukernavn er ditt studentnummer etterfulgt av @vidstud.no. Eks: 123456@vidstud.no</li>
+          <li>Passordet er det samme som du har laget i Feide.</li>
+        </ol>
+        <p>Husk å godkjenne sertifikatet som dukker opp ved førstegangs pålogging.</p>
+      </div>
+    </div>
+
     <div class="toast" id="feideToast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-          <strong class="me-auto">Om Feide</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <strong class="me-auto">Om Feide</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
         <p>Opprett Feide-konto eller glemt passord</p>
         <ol>
           <li>Skann QR-koden nedenfor.</li>
-            <li>Gå til Passordweb-linken på siden.</li>
-            <li>Følg veiledningen og velg "Aktiver / Glemt passord" eller "Endre passord".</li>
-            <li>Fullfør oppsettet og skriv inn nødvendig informasjon.</li>
-            <li>Pinkoden skal du ha mottatt pr. e-post fra VID.</li>
-            <li>Kontakt studentservice om du har mistet den.</li>
-            <li>Etter at du har opprettet Feide-kontoen din må du vente i 90 minutter før du logger deg på Feide. Hvis du prøver å logge deg på før det har gått 90 minutter blir kontoen din låst og du må gjøre alt på nytt. Ta godt vare på passordet du lager til Feide-kontoen din. Det kommer du til å bruke mye!</li>
+          <li>Gå til Passordweb-linken på siden.</li>
+          <li>Følg veiledningen og velg "Aktiver / Glemt passord" eller "Endre passord".</li>
+          <li>Fullfør oppsettet og skriv inn nødvendig informasjon.</li>
+          <li>Pinkoden skal du ha mottatt pr. e-post fra VID.</li>
+          <li>Kontakt studentservice om du har mistet den.</li>
+          <li>Etter at du har opprettet Feide-kontoen din må du vente i 90 minutter før du logger deg på Feide. Hvis du prøver å logge deg på før det har gått 90 minutter blir kontoen din låst og du må gjøre alt på nytt. Ta godt vare på passordet du lager til Feide-kontoen din. Det kommer du til å bruke mye!</li>
         </ol>
-          <img src="../images/feide.png" alt="Feide" style="border-radius: 10px;">
+        <img src="../images/feide.png" alt="Feide" style="border-radius: 10px;">
       </div>
-  </div>
+    </div>
 
     <div class="toast" id="office365Toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
@@ -83,9 +132,9 @@
         <h5>Microsoft Office 365 for studenter</h5>
         <p>Aktive studenter ved VID har gratis tilgang til Office 365, som inneholder Office-pakken med blant annet Teams, Word, Excel, PowerPoint og Outlook.</p>
         <p>Du kan bruke Office 365 i skyen eller laste ned programmene så lenge du er student ved VID.</p>
-        <p>Skann QR-koden nedenfor for veiledning for aktivering.</p>  
-      </div>
+        <p>Skann QR-koden nedenfor for veiledning for aktivering.</p>
         <img src="../images/microsoft.png" alt="Microsoft" style="border-radius: 10px;">
+      </div>
     </div>
 
     <div class="toast" id="bookit" role="alert" aria-live="assertive" aria-atomic="true">
@@ -101,45 +150,43 @@
           <input type="text" id="emne" name="emne"><br>
           <label for="dropdown">Velg en kategori:</label><br>
           <select id="dropdown" name="dropdown">
-              <option value="wi-fi">Wi-Fi</option>
-              <option value="program">Program</option>
-              <option value="passord">Passord</option>
-              <option value="online-hjelp">Onlinehjelp</option>
+            <option value="wi-fi">Wi-Fi</option>
+            <option value="program">Program</option>
+            <option value="passord">Passord</option>
+            <option value="online-hjelp">Onlinehjelp</option>
           </select><br>
           <label for="studentnumber">Studentnummer:</label><br>
           <input type="text" id="studentnumber" name="studentnumber" required pattern="\d{6}"><br>
           <label for="notater">Notater:</label><br>
           <textarea id="notater" name="notater" rows="4" cols="50"></textarea><br>
-          <input type="submit" value="Send inn">
-      </form>
+          <input type="submit" value="Send inn" class="btn">
+        </form>
       </div>
     </div>
 
-        <div class="toast" id="utskriftToast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast" id="utskriftToast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-          <strong class="me-auto">Utskrift</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <strong class="me-auto">Utskrift</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body">
         <p>Aktivere utskrift</p>
         <ol>
           <li>Gå til SafeQ-nettsiden: https://safeqprint.vid.no:9443/end-user/ui/login</li>
-            <li>Lad adgangskortet ditt.</li>
-            <li>Knytt adgangskortet ditt til ditt studentnummer.</li>
+          <li>Lad adgangskortet ditt.</li>
+          <li>Knytt adgangskortet ditt til ditt studentnummer.</li>
         </ol>
         <li>For å laste opp og skrive ut:</li>
-            <li>Gå til SafeQ web.</li>
-            <li>Velg opplastingsjobb -> velg filer & last opp dokumenter.</li>
-            <li>Logg inn på skriveren med studentnummeret og passordet ditt eller med kortet ditt.</li>
-            <li>Velg SafeQ-utskrift og velg dokumentene du vil skrive ut.</li>
+        <li>Gå til SafeQ web.</li>
+        <li>Velg opplastingsjobb -> velg filer & last opp dokumenter.</li>
+        <li>Logg inn på skriveren med studentnummeret og passordet ditt eller med kortet ditt.</li>
+        <li>Velg SafeQ-utskrift og velg dokumentene du vil skrive ut.</li>
         </ol>
       </div>
-  </div>
+    </div>
   </div>
 
-  
-  
-<%- include('./partials/scripts.ejs') %>
+  <%- include('./partials/scripts.ejs') %>
 </body>
 
 </html>

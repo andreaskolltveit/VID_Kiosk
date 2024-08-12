@@ -3,7 +3,7 @@ const createError = require('http-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const axios = require('axios');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -36,6 +36,46 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
+
+// Serve favicon
+app.use('/favicon.ico', express.static('public/favicon.ico'));
+
+// CORS headers for all requests
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
+// Handle OPTIONS method
+app.options('/api/chat_panel', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.send();
+});
+
+// Proxy setup for POST requests
+app.use('/api/chat_panel', createProxyMiddleware({
+  target: 'https://vid.boost.ai',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/api/chat_panel': '/api/chat/v2', // rewrite path to match target API
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`Proxying request ${req.method} ${req.originalUrl} to ${proxyReq.path}`);
+  },
+  onError: (err, req, res) => {
+    console.error(`Error proxying request ${req.method} ${req.originalUrl} - ${err.message}`);
+    res.status(500).send('Proxy error');
+  },
+  onProxyRes: (proxyRes, req, res) => {
+    proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+    proxyRes.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS';
+    proxyRes.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept';
+  }
+}));
 
 app.use('/', indexRouter);
 app.use('/itsupport', itsupportRouter);
